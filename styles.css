@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    text-align: center;
 }
 
 @keyframes gradientShift {
