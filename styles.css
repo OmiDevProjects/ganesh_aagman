@@ -423,6 +423,18 @@ body {
     font-weight: 600;
 }
 
+.audio-message {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    text-align: center;
+}
+
 .play-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(255,107,53,0.4);

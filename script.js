@@ -74,7 +74,7 @@ function addCelebrationEffects() {
             
             // Add temporary glow effect
             const icon = this.querySelector('.icon');
-            icon.style.textShadow = '0 0 20px #ff6b35';
+            if (icon) icon.style.textShadow = '0 0 20px #ff6b35';
         });
         
         item.addEventListener('mouseleave', function() {
@@ -82,7 +82,7 @@ function addCelebrationEffects() {
             this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
             
             const icon = this.querySelector('.icon');
-            icon.style.textShadow = 'none';
+            if (icon) icon.style.textShadow = 'none';
         });
     });
 }
@@ -325,13 +325,13 @@ function initializeAudio() {
                 this.classList.add('playing');
             } else {
                 audio.pause();
-                this.innerHTML = '🎵 Play Devotional Song';
+                this.innerHTML = '🎵 Play Ganesha Aarti';
                 this.classList.remove('playing');
             }
         });
         
         audio.addEventListener('ended', function() {
-            playBtn.innerHTML = '🎵 Play Devotional Song';
+            playBtn.innerHTML = '🎵 Play Ganesha Aarti';
             playBtn.classList.remove('playing');
         });
     }
@@ -353,47 +353,7 @@ window.addEventListener('scroll', function() {
 });
 
 // Initialize page with welcome animation
-setTimeout(() => {
-    document.body.style.opacity = '1';
-    initializeAudio();
-}, 100);All('.card, .celebration-item, .blessing-item');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-});
-
-// Audio functionality
-function initializeAudio() {
-    const playBtn = document.getElementById('playBtn');
-    const audio = document.getElementById('devotionalAudio');
-    
-    playBtn.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play();
-            this.innerHTML = '⏸️ Pause Song';
-            this.classList.add('playing');
-        } else {
-            audio.pause();
-            this.innerHTML = '🎵 Play Devotional Song';
-            this.classList.remove('playing');
-        }
-    });
-    
-    audio.addEventListener('ended', function() {
-        playBtn.innerHTML = '🎵 Play Devotional Song';
-        playBtn.classList.remove('playing');
-    });
-}
-
-// Initialize page with welcome animation
-setTimeout(() => {
-    document.body.style.opacity = '1';
-    initializeAudio();
-}, 100);
+// setTimeout(() => {
+//     document.body.style.opacity = '1';
+//     initializeAudio();
+// }, 100);
