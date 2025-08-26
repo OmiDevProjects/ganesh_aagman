@@ -93,7 +93,7 @@ function setDynamicGreeting() {
     } else if (hour < 17) {
         welcomeSection.innerHTML = '☀️ Good Afternoon! Welcome Lord Ganesha 🙏';
     } else {
-        welcomeSection.innerHTML = '🌙 Good Evening! Welcome Lord Ganesha 🙏';
+        welcomeSection.innerHTML = '🪔 Good Evening! Welcome Lord Ganesha 🙏';
     }
 }
 
