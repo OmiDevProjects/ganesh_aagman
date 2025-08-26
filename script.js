@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize interactive elements
     initializeInteractiveElements();
+    
+    // Initialize audio
+    initializeAudio();
 });
 
 function createSparkle(e) {
@@ -306,9 +309,54 @@ particleStyle.textContent = `
 `;
 document.head.appendChild(particleStyle);
 
+// Audio functionality
+function initializeAudio() {
+    const playBtn = document.getElementById('playBtn');
+    const audio = document.getElementById('devotionalAudio');
+    
+    if (playBtn && audio) {
+        playBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                    this.innerHTML = '🎵 Audio not available';
+                });
+                this.innerHTML = '⏸️ Pause Song';
+                this.classList.add('playing');
+            } else {
+                audio.pause();
+                this.innerHTML = '🎵 Play Devotional Song';
+                this.classList.remove('playing');
+            }
+        });
+        
+        audio.addEventListener('ended', function() {
+            playBtn.innerHTML = '🎵 Play Devotional Song';
+            playBtn.classList.remove('playing');
+        });
+    }
+}
+
 // Add scroll-triggered animations
 window.addEventListener('scroll', function() {
     const elements = document.querySelectorAll('.card, .celebration-item, .blessing-item');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+// Initialize page with welcome animation
+setTimeout(() => {
+    document.body.style.opacity = '1';
+    initializeAudio();
+}, 100);All('.card, .celebration-item, .blessing-item');
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
